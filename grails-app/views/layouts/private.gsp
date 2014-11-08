@@ -1,13 +1,15 @@
 <%@ page import="org.pichata.security.SessionService" %>
-
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <!-- BASICS -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <meta name="description" content="">
-    <title>Pichat City</title>
+    <title>Welcome to Clean Zone</title>
     <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,23 +23,24 @@
     <link href="${resource(dir:'css',file:'font-awesome.min.css')}" rel="stylesheet" />
     <!-- full calendar css-->
 
-    <link href="${resource(dir:'assets/fullcalendar',file:'fullcalendar/bootstrap-fullcalendar.css')}" rel="stylesheet" />
-    <link href="${resource(dir:'assets/fullcalendar',file:'fullcalendar/fullcalendar.css')}" rel="stylesheet" />
+    %{--<link href="${resource(dir:'assets/fullcalendar',file:'fullcalendar/bootstrap-fullcalendar.css')}" rel="stylesheet" />
+    <link href="${resource(dir:'assets/fullcalendar',file:'fullcalendar/fullcalendar.css')}" rel="stylesheet" />--}%
 
     <!-- easy pie chart-->
-    <link href="${resource(dir:'assets/jquery-easy-pie-chart',file:'jquery.easy-pie-chart.css')}" rel="stylesheet" type="text/css" media="screen"/>
+    %{--<link href="${resource(dir:'assets/jquery-easy-pie-chart',file:'jquery.easy-pie-chart.css')}" rel="stylesheet" type="text/css" media="screen"/>
+   --}%
     <!-- owl carousel -->
-    <link rel="stylesheet" href="${resource(dir:'css',file:'owl.carousel.css')}" type="text/css">
-    <link href="${resource(dir:'css',file:'jquery-jvectormap-1.2.2.css')}" rel="stylesheet">
+   %{-- <link rel="stylesheet" href="${resource(dir:'css',file:'owl.carousel.css')}" type="text/css">--}%
+   %{-- <link href="${resource(dir:'css',file:'jquery-jvectormap-1.2.2.css')}" rel="stylesheet">--}%
 
     <!-- Custom styles -->
-    <link rel="stylesheet" href="${resource(dir:'css',file:'fullcalendar.css')}">
-    <link href="${resource(dir:'css',file:'widgets.css')}" rel="stylesheet">
+    %{--<link rel="stylesheet" href="${resource(dir:'css',file:'fullcalendar.css')}">--}%
+   %{-- <link href="${resource(dir:'css',file:'widgets.css')}" rel="stylesheet">--}%
     <link href="${resource(dir:'css',file:'style.css')}" rel="stylesheet">
     <link href="${resource(dir:'css',file:'style-responsive.css')}" rel="stylesheet" />
-    <link href="${resource(dir:'css',file:'xcharts.min.css')}" rel=" stylesheet">
-    <link href="${resource(dir:'css',file:'jquery-ui-1.10.4.min.css')}" rel="stylesheet">
-    <r:use modules="jquery,bootstrap, jquery-nicescroll, jquery-scrollTo" />
+ %{--   <link href="${resource(dir:'css',file:'xcharts.min.css')}" rel=" stylesheet">--}%
+    %{--<link href="${resource(dir:'css',file:'jquery-ui-1.10.4.min.css')}" rel="stylesheet">--}%
+    <r:use modules="jquery,bootstrap" />
     <r:layoutResources />
     <g:layoutHead/>
 </head>
@@ -50,8 +53,7 @@
             </div>
 
             <!--logo start-->
-            <a href="index.html" class="logo">Pichat <span class="lite">City</span></a>
-
+             <g:link controller="portal" action="index" class="logo">Clean <span class="lite">Zone</span></g:link>
             <div class="nav search-row" id="top_menu">
                 <!--  search form start -->
                 <ul class="nav top-menu">

@@ -27,7 +27,7 @@ CREATE TABLE dal.denuncia (
 	id_usuario integer NOT NULL,
 	id_clasificacion integer NOT NULL,
 	descripcion character varying(255) NOT NULL,
-	nombre_lugar character varying(255) NOT NULL,
+	direccion character varying(255),
 	activo character varying(5),
 	fecha_denuncia timestamp without time zone,
 	fecha_registro timestamp without time zone,
@@ -62,10 +62,12 @@ CREATE TABLE dal.localizacion (
 	id serial,
 	id_clasificacion integer NOT NULL,
 	nombre character varying(255) NOT NULL,
-	detalle character varying(255) NOT NULL,
+	descripcion character varying(255),
+	direccion character varying(255),
 	fecha_registro timestamp without time zone,
 	latitud  numeric(16,8),  --K
 	longitud numeric(16,8), --B
+	activo character varying(5),
 	CONSTRAINT pk_localizacion PRIMARY KEY (id),
 	CONSTRAINT fk_clasificacion_localizacion FOREIGN KEY (id_clasificacion)
       REFERENCES dal.clasificacion (id) MATCH SIMPLE
@@ -75,11 +77,27 @@ CREATE TABLE dal.localizacion (
 
 insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Basura','BASURA','SI',current_timestamp);
 insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Papel','PAPEL','SI',current_timestamp);
-insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Botella','BOTELLA','SI',current_timestamp);
-insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Vidrio','VIDRIO','SI',current_timestamp);
+insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Botella de Platico','BOTELLA','SI',current_timestamp);
+insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('Todo Vidrio','VIDRIO','SI',current_timestamp);
 insert into dal.clasificacion (nombre,codigo,activo,fecha_registro) VALUES('','SI',current_timestamp);
 
 /*
 Latitud  -16.50413534
 Longitud -68.14241471
 */
+
+
+insert into dal.localizacion(id_clasificacion, nombre, descripcion, direccion, fecha_registro, latitud, longitud)
+  values(2,'', '', '', current_timestamp,16.52, -68.15);
+
+insert into dal.localizacion(id_clasificacion, nombre, descripcion, direccion, fecha_registro, latitud, longitud)
+  values(2,'', '', '', current_timestamp,-16.5003 , -68.15003);
+
+insert into dal.localizacion(id_clasificacion, nombre, descripcion, direccion, fecha_registro, latitud, longitud)
+  values(4,'', '', '', current_timestamp,-16.5, -68.14);
+
+insert into dal.localizacion(id_clasificacion, nombre, descripcion, direccion, fecha_registro, latitud, longitud)
+  values(4,'', '', '', current_timestamp,-16.5009 , -68.1506);
+
+insert into dal.localizacion(id_clasificacion, nombre, descripcion, direccion, fecha_registro, latitud, longitud)
+  values(3,'', '', '', current_timestamp,-16.5006, -68.149993);

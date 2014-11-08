@@ -11,6 +11,13 @@ class PortalController {
         if(SessionService.getInstancia().getUsuario()){
            redirect(action:  'panelControl')
         }
+
+        def denunciasList = Denuncia.createCriteria().listDistinct {
+            eq('activo', TipoBoolean.SI)
+            order('fechaDenuncia', 'asc')
+        }
+        println denunciasList
+        return [denunciasList: denunciasList]
     }
 
     def login(){

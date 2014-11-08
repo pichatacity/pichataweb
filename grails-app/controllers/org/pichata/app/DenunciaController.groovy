@@ -11,12 +11,14 @@ class DenunciaController {
     def redesSocialesService
 
     def index() {
-        if(!SessionService.getInstancia().getUsuario()){
+        def usuarionIns = SessionService.getInstancia().getUsuario()
+        if(!usuarionIns){
             redirect(controller: 'portal', action:  'login')
         }
 
         def denunciasList = Denuncia.createCriteria().listDistinct {
             eq('activo', TipoBoolean.SI)
+            eq('usuario', usuarionIns)
             order('fechaDenuncia', 'asc')
         }
 
@@ -45,12 +47,12 @@ class DenunciaController {
         println "Usuario: ${usuarioIns.usuario}"
 
         denunciaIns.descripcion = params.descripcion
-    	denunciaIns.fechaDenuncia = params.fechaDenuncia
+    	denunciaIns.fechaDenuncia = new Date() //params.fechaDenuncia
     	denunciaIns.usuario = usuarioIns
     	denunciaIns.clasificacion = clasificacionIns
         denunciaIns.longitud = params.longitud.toBigDecimal()
         denunciaIns.latitud = params.latitud.toBigDecimal()
-        denunciaIns.nombreLugar = params.ubicacion
+        denunciaIns.direccion = params.direccion
 
     	if(denunciaIns.validate() && denunciaIns.save()){
             def pars = [

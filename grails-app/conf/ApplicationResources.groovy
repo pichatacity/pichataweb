@@ -23,7 +23,7 @@ modules = {
 
     'bootstrap' {
         dependsOn 'jquery'
-        resource url: 'js/bootstrap.min.js', disposition: 'head', bundle: 'jq_datepicker'
+        resource url: 'js/bootstrap.min.js', disposition: 'head'
     }
 
     'jquery-scrollTo' {

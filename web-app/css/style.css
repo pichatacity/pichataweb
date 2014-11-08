@@ -1690,13 +1690,15 @@ div[data-role="editor-toolbar"] {
   cursor:move;
 }
 /*-----	map-----*/
-* Google maps */
+/* Google maps */
 
+/*
 .gmap iframe{
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
 }
+*/
 
 /* Google maps ends */
 /* Today datas */

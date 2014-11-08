@@ -4,7 +4,8 @@ class Localizacion implements Serializable {
 
     Long id
     String nombre
-    String detalle
+    String descripcion
+    String direccion
     BigDecimal latitud
     BigDecimal longitud
 	Date fechaRegistro = new Date()
@@ -13,7 +14,7 @@ class Localizacion implements Serializable {
 	static belongsTo = [clasificacion: Clasificacion]
 
  	static mapping = {
-        table('DAL.LOCALIZZACION')
+        table('DAL.LOCALIZACION')
         version(false)
         id(generator: "identity")
         clasificacion (column: 'ID_CLASIFICACION')
@@ -23,6 +24,7 @@ class Localizacion implements Serializable {
     	clasificacion(nullable: false)
     	fechaRegistro()
     	nombre()
-    	detalle()
+        descripcion()
+        direccion()
     }
 }

@@ -4,7 +4,7 @@ class Denuncia  implements Serializable{
 
     Long id
     String descripcion
-    String nombreLugar
+    String direccion
     BigDecimal latitud
     BigDecimal longitud
 
