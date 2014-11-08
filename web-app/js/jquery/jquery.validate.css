@@ -1,0 +1,26 @@
+form, fieldset {
+	margin: 0;
+	padding: 0;
+}
+fieldset { border: 1px solid #000; }
+
+legend {
+	padding: 0;
+	color: #000;
+}
+div.error { display: none; }
+label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+    display: block;
+    font-size: 10px;
+	font-style: italic;
+	margin: 0px 0px 5px;
+	width: 220px;
+}
+/*
+input {	border: 1px solid black; }
+input.checkbox { border: none }
+*/
+input:focus, textarea:focus, select:focus { border: 1px dotted black; }
+input.error, textarea.error, select.error  { border: 1px dotted red; }
